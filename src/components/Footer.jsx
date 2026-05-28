@@ -7,7 +7,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <footer className="relative overflow-hidden pt-0 pb-8" style={{ background: 'linear-gradient(180deg, #050510, #030308)' }}>
+    <footer className="relative overflow-hidden pt-0 pb-8" style={{ background: 'linear-gradient(180deg, var(--bg-primary), var(--bg-secondary))' }}>
       <div className="w-full overflow-hidden leading-none">
         <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
           <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z" style={{ fill: 'rgba(0,229,255,0.04)' }} />

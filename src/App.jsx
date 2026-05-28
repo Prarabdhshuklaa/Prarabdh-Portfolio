@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { ThemeProvider } from './utils/ThemeContext';
 import LoadingScreen from './components/LoadingScreen';
 import CursorEffect from './components/CursorEffect';
 import ScrollProgress from './components/ScrollProgress';
@@ -19,7 +20,7 @@ export default function App() {
   const handleLoadComplete = useCallback(() => setLoading(false), []);
 
   return (
-    <>
+    <ThemeProvider>
       <CursorEffect />
       {loading && <LoadingScreen onComplete={handleLoadComplete} />}
       {!loading && (
@@ -40,6 +41,6 @@ export default function App() {
           <AIAssistant />
         </>
       )}
-    </>
+    </ThemeProvider>
   );
 }

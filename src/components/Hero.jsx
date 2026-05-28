@@ -12,13 +12,6 @@ const techBadges = [
   { label: 'Express', emoji: '🚄', delay: 0.8 },
 ];
 
-function getGreeting() {
-  const h = new Date().getHours();
-  if (h < 12) return 'Good Morning';
-  if (h < 17) return 'Good Afternoon';
-  return 'Good Evening';
-}
-
 function useTypingEffect(texts, speed = 80, pause = 1800) {
   const [displayed, setDisplayed] = useState('');
   const [textIndex, setTextIndex] = useState(0);
@@ -46,11 +39,10 @@ function useTypingEffect(texts, speed = 80, pause = 1800) {
 
 export default function Hero() {
   const typing = useTypingEffect(personalInfo.typingTexts);
-  const greeting = getGreeting();
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-grid"
-      style={{ background: 'radial-gradient(ellipse at 20% 50%, rgba(0,229,255,0.04) 0%, #050510 50%), radial-gradient(ellipse at 80% 50%, rgba(123,47,255,0.04) 0%, transparent 50%), #050510' }}>
+      style={{ background: 'radial-gradient(ellipse at 20% 50%, rgba(0,229,255,0.04) 0%, var(--bg-primary) 50%), radial-gradient(ellipse at 80% 50%, rgba(123,47,255,0.04) 0%, transparent 50%), var(--bg-primary)' }}>
       <ParticleBackground />
       <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full opacity-10 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #00e5ff, transparent)', filter: 'blur(80px)' }} />
@@ -60,18 +52,6 @@ export default function Hero() {
       <div className="container-custom relative z-10 pt-24 pb-16 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col gap-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-start gap-2.5 max-w-sm px-4 py-2 rounded-2xl"
-              style={{ background: 'rgba(0,229,255,0.06)', border: '1px solid rgba(0,229,255,0.2)' }}>
-              <span className="relative flex h-2 w-2 mt-1.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00e5ff] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00e5ff]" />
-              </span>
-              <span className="text-sm font-medium text-[#8892b0] leading-snug">
-                {greeting}, I'm a <span className="text-[#00e5ff] font-semibold">Full Stack Developer</span> from <span className="text-[#00e5ff] font-semibold">Ahmedabad, India</span>
-              </span>
-            </motion.div>
-
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}>
               <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
                 <span className="block text-[#f0f4ff]">Prarabdh</span>

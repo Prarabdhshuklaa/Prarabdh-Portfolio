@@ -116,7 +116,7 @@ export default function Skills() {
       id="skills"
       className="relative py-24 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #050510 0%, #07071a 50%, #050510 100%)',
+        background: 'linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%)',
       }}
     >
       {/* Background orbs */}

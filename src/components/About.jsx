@@ -157,7 +157,7 @@ export default function About() {
   const headerInView = useInView(headerRef, { once: true, margin: '-80px' });
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden" style={{ background: '#050510' }}>
+    <section id="about" className="relative py-24 overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       {/* Background glows */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-5 pointer-events-none"
