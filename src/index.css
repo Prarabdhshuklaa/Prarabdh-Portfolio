@@ -1,0 +1,521 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   DESIGN TOKENS & CSS CUSTOM PROPERTIES
+   ============================================= */
+:root {
+  --cyber-black: #050510;
+  --deep-blue: #0a0a2e;
+  --neon-cyan: #00e5ff;
+  --neon-cyan-dim: #00e5ff80;
+  --electric-purple: #9c27b0;
+  --purple-glow: #7b2fff;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(0, 229, 255, 0.3);
+  --text-primary: #f0f4ff;
+  --text-secondary: #9aa5c0;  /* Lightened for WCAG AA contrast ≥ 4.5:1 */
+  --text-accent: #00e5ff;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+/* =============================================
+   GLOBAL RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--cyber-black);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  cursor: none;
+  line-height: 1.7;
+}
+
+body * {
+  cursor: none;
+}
+
+/* Restore cursor for form elements */
+input, textarea, select {
+  cursor: text;
+}
+
+/* On touch/coarse pointer devices — restore default cursor */
+@media (hover: none), (pointer: coarse) {
+  body, body * { cursor: auto !important; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* Keyboard focus rings for accessibility */
+:focus-visible {
+  outline: 2px solid #00e5ff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =============================================
+   CUSTOM SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #050510; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00e5ff, #9c27b0);
+  border-radius: 2px;
+}
+
+/* =============================================
+   CUSTOM CURSOR
+   ============================================= */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #00e5ff;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff60;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(0, 229, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-dot.hovering {
+  width: 12px;
+  height: 12px;
+  background: #9c27b0;
+  box-shadow: 0 0 15px #9c27b0, 0 0 30px #9c27b060;
+}
+
+.cursor-ring.hovering {
+  width: 52px;
+  height: 52px;
+  border-color: rgba(156, 39, 176, 0.6);
+}
+
+/* =============================================
+   GLASSMORPHISM UTILITIES
+   ============================================= */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(5, 5, 16, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-mono { font-family: var(--font-mono); }
+
+.text-gradient {
+  color: #00e5ff; /* Fallback for unsupported browsers */
+  background: linear-gradient(135deg, #00e5ff, #7b2fff, #9c27b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* =============================================
+   NEON GLOW EFFECTS
+   ============================================= */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.8), 0 0 20px rgba(0, 229, 255, 0.4), 0 0 40px rgba(0, 229, 255, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00e5ff20, #7b2fff20);
+  border: 1px solid rgba(0, 229, 255, 0.4);
+  color: #00e5ff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.3), 0 0 50px rgba(0, 229, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: rgba(0, 229, 255, 0.7);
+  background: linear-gradient(135deg, #00e5ff30, #7b2fff30);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f0f4ff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* =============================================
+   SECTION UTILITIES
+   ============================================= */
+.section-padding { padding: 5rem 0; }
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #00e5ff;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+/* =============================================
+   BACKGROUND GRID
+   ============================================= */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* =============================================
+   SKILL BAR
+   ============================================= */
+.skill-bar-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00e5ff, #7b2fff);
+  border-radius: 3px;
+  transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+  width: 0%;
+}
+
+/* =============================================
+   TYPING CURSOR
+   ============================================= */
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: #00e5ff;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  box-shadow: 0 0 8px #00e5ff;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(12px); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { box-shadow: 0 0 5px rgba(0,229,255,0.3), 0 0 10px rgba(0,229,255,0.2); }
+  50% { box-shadow: 0 0 15px rgba(0,229,255,0.6), 0 0 30px rgba(0,229,255,0.3), 0 0 60px rgba(0,229,255,0.1); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 4s ease-in-out infinite; }
+.animate-pulse-neon { animation: pulse-neon 2s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 20s linear infinite; }
+.animate-gradient { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
+
+/* =============================================
+   SCROLL PROGRESS BAR
+   ============================================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00e5ff, #7b2fff, #9c27b0);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* =============================================
+   LOADING SCREEN
+   ============================================= */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #050510;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =============================================
+   CHAT WIDGET
+   ============================================= */
+.chat-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.chat-panel {
+  width: 360px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(5, 5, 16, 0.95);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 229, 255, 0.1), 0 25px 50px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+@media (max-width: 480px) {
+  .chat-panel { width: calc(100vw - 2rem); }
+}
+
+/* =============================================
+   PROJECT CARDS
+   ============================================= */
+.project-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: rgba(0, 229, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(0,229,255,0.06);
+}
+
+/* =============================================
+   SKILL CARDS
+   ============================================= */
+.skill-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 30px rgba(0,229,255,0.1);
+}
+
+/* =============================================
+   CERTIFICATE CARDS
+   ============================================= */
+.cert-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  padding-top: 2rem; /* Extra top space for absolute bar */
+  transition: all 0.3s ease;
+  position: relative;  /* Required for absolute top bar */
+  overflow: hidden;
+}
+
+.cert-card:hover {
+  border-color: rgba(0, 229, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* =============================================
+   CONTACT FORM
+   ============================================= */
+.form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.875rem 1rem;
+  color: #f0f4ff;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input::placeholder { color: rgba(136, 146, 176, 0.6); }
+
+.form-input:focus {
+  border-color: rgba(0, 229, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+  background: rgba(0, 229, 255, 0.03);
+}
+
+textarea.form-input { resize: vertical; min-height: 120px; }
+
+/* =============================================
+   MOBILE MENU
+   ============================================= */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 5, 16, 0.98);
+  backdrop-filter: blur(30px);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* =============================================
+   CONTAINER
+   ============================================= */
+.container-custom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) { .container-custom { padding: 0 2rem; } }
+@media (min-width: 1024px) { .container-custom { padding: 0 3rem; } }
+
+/* =============================================
+   AI ASSISTANT ORB
+   ============================================= */
+.ai-orb {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #00e5ff, #7b2fff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0,229,255,0.4), 0 0 40px rgba(0,229,255,0.2);
+  animation: pulse-neon 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+/* =============================================
+   SELECTION
+   ============================================= */
+::selection {
+  background: rgba(0, 229, 255, 0.2);
+  color: #00e5ff;
+}
