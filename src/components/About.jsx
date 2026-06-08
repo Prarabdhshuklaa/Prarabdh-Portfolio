@@ -8,7 +8,7 @@ const timeline = [
     year: '2021',
     title: 'Started B.Tech Journey',
     subtitle: 'Computer Science & Engineering',
-    desc: 'Enrolled at a top engineering college in Gujarat, diving deep into data structures, algorithms, and the foundations of software engineering.',
+    desc: 'Enrolled at a top engineering college in Madhya Pradesh, Indore diving deep into data structures, algorithms, and the foundations of software engineering.',
     color: '#00e5ff',
     icon: '🎓',
   },
@@ -40,13 +40,13 @@ const timeline = [
     year: '2025',
     title: 'Graduated & Joined TCS',
     subtitle: 'Professional Career Begins',
-    desc: 'Completed B.Tech with distinction and joined Tata Consultancy Services as a Systems Engineer, one of India\'s largest IT conglomerates.',
+    desc: 'Completed B.Tech with distinction and joined Tata Consultancy Services as a Intern , one of India\'s largest IT conglomerates.',
     color: '#00e5ff',
     icon: '🏢',
   },
   {
     year: '2026',
-    title: 'SAP MM Trainee @ TCS',
+    title: 'System Engineer @ TCS',
     subtitle: 'Enterprise ERP Expertise',
     desc: 'Undergoing specialized SAP Materials Management training at TCS since February 2026, bridging full-stack development with enterprise ERP systems.',
     color: '#7b2fff',
@@ -193,9 +193,10 @@ export default function About() {
           {/* Bio */}
           <div className="flex flex-col gap-6">
             {[
-              personalInfo.bio1 || `I'm a passionate Full Stack Developer with a strong foundation in the MERN stack and a growing expertise in enterprise SAP systems. Based in Ahmedabad, Gujarat, I bridge the gap between modern web technologies and large-scale business solutions.`,
-              personalInfo.bio2 || `Currently undergoing specialized SAP Materials Management (MM) training at Tata Consultancy Services since February 2026, I bring a unique combination of full-stack development skills and enterprise ERP knowledge to every project I work on.`,
-              personalInfo.bio3 || `When I'm not coding, I'm exploring the latest in web technologies, contributing to open source projects, or learning about enterprise systems that power Fortune 500 companies around the world.`,
+              personalInfo.bio1 || `I am a Software Engineer specializing in Full-Stack Development, AWS Cloud, and SAP MM. With experience in building scalable web applications and enterprise solutions, I focus on creating software that combines technical excellence with real business value.
+My expertise includes React, Node.js, Express.js, MongoDB, MySQL, AWS, and SAP technologies. From developing full-stack applications like Lifestyle to working with enterprise systems, I enjoy solving complex problems and delivering impactful digital solutions.
+I am committed to continuous learning, innovation, and building technology that enhances user experiences and drives business growth.`,
+
             ].map((para, i) => (
               <motion.p
                 key={i}

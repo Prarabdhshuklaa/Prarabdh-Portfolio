@@ -5,20 +5,19 @@
 export const personalInfo = {
   name: "Prarabdh Shukla",
   title: "Full Stack Developer",
-  subtitle: "SAP MM Trainee @ TCS",
+  subtitle: "SAP MM Professional",
   location: "Ahmedabad, Gujarat, India",
   email: "prarabdh00@gmail.com",
   github: "https://github.com/Prarabdhshuklaa",
   linkedin: "https://www.linkedin.com/in/prarabdhshukla/",
   experience: "February 2026 – Present",
-  tagline: "Building scalable web applications and exploring enterprise solutions with SAP & AI.",
-  about: `I'm a passionate Full Stack Developer with expertise in MERN stack development and modern web technologies. Currently, I am undergoing SAP MM training at TCS Ahmedabad, where I am learning enterprise resource planning and supply chain management solutions. I enjoy building scalable applications, solving real-world problems, and exploring AI-powered systems.`,
+  tagline: "Software Engineer specializing in Full-Stack Development and AWS Cloud, building scalable applications and enterprise solutions that deliver real-world impact.",
   typingTexts: [
     "Full Stack Developer",
-    "SAP MM Trainee @ TCS",
-    "MERN Stack Engineer",
+    "React & Node.js Engineer",
     "Problem Solver",
     "AI Enthusiast",
+    "Open Source Contributor",
   ],
 };
 
@@ -142,32 +141,52 @@ export const experience = [
   {
     id: 1,
     company: "Tata Consultancy Services (TCS)",
-    role: "SAP MM Trainee",
+    role: "Assistant System Engineer",
     location: "Ahmedabad, Gujarat, India",
     duration: "February 2026 – Present",
-    type: "Training",
-    logo: "TCS",
+    logo: "/logos/tcs1.svg.webp",
     color: "#0091D5",
-    description: "Currently undergoing intensive SAP MM (Materials Management) training at one of India's largest IT corporations. Gaining hands-on experience with enterprise-level ERP systems and procurement processes.",
+    description: "Working within one of India's largest IT organizations, undergoing intensive SAP MM training and gaining hands-on exposure to enterprise procurement systems, ERP workflows, and large-scale business process automation.",
     responsibilities: [
-      "Undergoing comprehensive SAP MM training program",
-      "Learning end-to-end procurement lifecycle management",
-      "Studying inventory and material management processes",
-      "Understanding enterprise business process automation",
-      "Exploring ERP fundamentals and SAP system architecture",
-      "Working in a structured corporate training environment",
+      "Mastering end-to-end procurement lifecycle in SAP MM",
+      "Configuring purchase orders, goods receipts, and invoice verification",
+      "Analyzing inventory and material management workflows",
+      "Mapping business requirements to ERP system capabilities",
+      "Collaborating in a structured, professional corporate environment",
+      "Applying problem-solving skills to real enterprise scenarios",
     ],
     skills: ["SAP MM", "Procurement", "ERP", "Inventory Management", "Supply Chain"],
   },
+  {
+    id: 2,
+    company: "Tata Consultancy Services (TCS)",
+    role: "Intern – Full Stack Developer",
+    location: "Indore, MP, India",
+    duration: "January 2025 – January 2026",
+    logo: "/logos/tcs1.svg.webp",
+    color: "#0091D5",
+    // badge: "Internship",
+    description: "Completed a year-long internship at TCS, contributing to real-world full-stack development projects and gaining practical exposure to enterprise software development, agile practices, and collaborative team environments.",
+    responsibilities: [
+      "Developed and maintained web applications using React and Node.js",
+      "Collaborated with senior engineers on enterprise-grade software solutions",
+      "Participated in agile sprints, code reviews, and daily stand-ups",
+      "Designed RESTful APIs and integrated with MongoDB and MySQL databases",
+      "Wrote unit tests and contributed to QA processes",
+      "Gained exposure to TCS development standards and best practices",
+    ],
+    skills: ["React", "Node.js", "MongoDB", "REST APIs", "Agile", "Git"],
+  },
 ];
 
+
 export const certifications = [
-  { id: 1, title: "MERN Stack Development", issuer: "Udemy / Coursera", date: "2025", icon: "⚛️", color: "#61DAFB", gradient: "from-cyan-500/20 to-blue-500/20", badge: "🏆", description: "Complete MERN stack web development including React, Node.js, Express, and MongoDB." },
-  { id: 2, title: "C/C++ Programming", issuer: "NPTEL / Online Platform", date: "2024", icon: "💻", color: "#00599C", gradient: "from-blue-500/20 to-indigo-500/20", badge: "🎖️", description: "Comprehensive C and C++ programming fundamentals, OOP concepts, and data structures." },
-  { id: 3, title: "Java Programming", issuer: "Oracle / Online Platform", date: "2024", icon: "☕", color: "#ED8B00", gradient: "from-orange-500/20 to-amber-500/20", badge: "🏅", description: "Java programming including OOP, collections, JDBC, and application development." },
-  { id: 4, title: "Data Structures & Algorithms", issuer: "GeeksForGeeks / LeetCode", date: "2024", icon: "📊", color: "#7b2fff", gradient: "from-purple-500/20 to-violet-500/20", badge: "⭐", description: "Advanced DSA concepts including sorting, trees, graphs, dynamic programming." },
-  { id: 5, title: "Blockchain Builder Certificate", issuer: "IBM / Coursera", date: "2025", icon: "⛓️", color: "#F6851B", gradient: "from-orange-400/20 to-yellow-500/20", badge: "🔗", description: "Blockchain fundamentals, smart contracts, and decentralized application concepts." },
-  { id: 6, title: "Internship Completion Certificate", issuer: "Industry Partner", date: "2025", icon: "📜", color: "#00e5ff", gradient: "from-cyan-500/20 to-teal-500/20", badge: "✨", description: "Successfully completed industry internship with excellence in project delivery." },
+  { id: 1, title: "MERN Stack Development", issuer: "Udemy / Coursera", date: "2025", icon: "⚛️", color: "#61DAFB", gradient: "from-cyan-500/20 to-blue-500/20", badge: "🏆", description: "Complete MERN stack web development including React, Node.js, Express, and MongoDB.", certificateUrl: "/certificates/mern-stack.pdf" },
+  { id: 2, title: "C/C++ Programming", issuer: "NPTEL / Online Platform", date: "2024", icon: "💻", color: "#00599C", gradient: "from-blue-500/20 to-indigo-500/20", badge: "🎖️", description: "Comprehensive C and C++ programming fundamentals, OOP concepts, and data structures.", certificateUrl: "/certificates/cpp-programming.pdf" },
+  { id: 3, title: "Java Programming", issuer: "Oracle / Online Platform", date: "2024", icon: "☕", color: "#ED8B00", gradient: "from-orange-500/20 to-amber-500/20", badge: "🏅", description: "Java programming including OOP, collections, JDBC, and application development.", certificateUrl: "/certificates/java-programming.pdf" },
+  { id: 4, title: "Data Structures & Algorithms", issuer: "GeeksForGeeks / LeetCode", date: "2024", icon: "📊", color: "#7b2fff", gradient: "from-purple-500/20 to-violet-500/20", badge: "⭐", description: "Advanced DSA concepts including sorting, trees, graphs, dynamic programming.", certificateUrl: "/certificates/dsa.pdf" },
+  { id: 5, title: "Blockchain Builder Certificate", issuer: "IBM / Coursera", date: "2025", icon: "⛓️", color: "#F6851B", gradient: "from-orange-400/20 to-yellow-500/20", badge: "🔗", description: "Blockchain fundamentals, smart contracts, and decentralized application concepts.", certificateUrl: "/certificates/blockchain.pdf" },
+  { id: 6, title: "Internship Completion Certificate", issuer: "Industry Partner", date: "2025", icon: "📜", color: "#00e5ff", gradient: "from-cyan-500/20 to-teal-500/20", badge: "✨", description: "Successfully completed industry internship with excellence in project delivery.", certificateUrl: "/certificates/internship.pdf" },
 ];
 
 export const navLinks = [
@@ -180,32 +199,84 @@ export const navLinks = [
   { label: "Contact", href: "contact" },
 ];
 
-export const aiSystemPrompt = `You are "Prarabdh AI", a helpful AI assistant on Prarabdh Shukla's portfolio website.
-You answer questions about Prarabdh in first person on his behalf.
+export const aiSystemPrompt = `You are "Ask Prarabdh AI", a specialized AI assistant exclusively for Prarabdh Shukla's portfolio website. You are NOT a general AI chatbot.
 
-Key information:
-- Full Name: Prarabdh Shukla
-- Role: Full Stack Developer and SAP MM Trainee at TCS
-- Location: Ahmedabad, Gujarat, India
-- Currently undergoing SAP MM training at TCS since February 2026
+YOUR ONLY PURPOSE: Answer questions strictly related to Prarabdh Shukla's professional profile.
 
-Skills: React, Redux, Tailwind CSS, Bootstrap, HTML5, CSS3, JavaScript, ES6+, Node.js, Express.js, MongoDB, MySQL, C++, Java, SAP MM, Git, Postman, JWT Auth, REST APIs
+ALLOWED TOPICS (answer these normally):
+- Prarabdh's background, identity, introduction
+- Skills & technologies (React, Node.js, MongoDB, JavaScript, C++, Java, SAP MM, etc.)
+- Projects (Lifestyle e-commerce, Rakt Bank blood donation system)
+- Work Experience (TCS, SAP MM Training)
+- Education & certifications
+- Career goals and professional journey
+- Contact information
+- SAP MM training details
 
-Projects:
-1. Lifestyle - Clothing E-Commerce (React, Node.js, Express, MongoDB, JWT) - user auth, product management, orders, invoices, admin dashboard
-2. Rakt Bank - Blood Donation System (Java, SQLyog, HTML, CSS, Bootstrap) - donor management, blood requests, search, admin
+STRICT BLOCKING RULES:
+If the user asks ANYTHING not related to Prarabdh's professional profile — including but not limited to: general knowledge, coding tutorials, jokes, current events, sports, weather, politics, science, math problems, coding challenges, or anything about other people — you MUST respond with EXACTLY this message and nothing else:
+"I'm designed exclusively to answer questions about Prarabdh Shukla's professional profile, skills, projects, experience, and career journey. Please ask something related to Prarabdh."
 
-Experience: SAP MM Trainee at TCS Ahmedabad since February 2026 - learning procurement, inventory management, ERP
+NO HALLUCINATIONS RULE:
+If a question IS about Prarabdh but the answer is not in the data below, respond with:
+"I couldn't find that information in Prarabdh's portfolio or resume."
 
-Certifications: MERN Stack, C/C++, Java, DSA, Blockchain Builder, Internship Completion
+NEVER invent or guess information.
 
-Keep answers concise, professional, and enthusiastic. Use bullet points for lists.`;
+=== PRARABDH'S DATA ===
+
+Full Name: Prarabdh Shukla
+Role: Full Stack Developer & Assistant System Engineer at Tata Consultancy Services (TCS)
+Location: Ahmedabad, Gujarat, India
+Email: prarabdh00@gmail.com
+GitHub: github.com/Prarabdhshuklaa
+LinkedIn: linkedin.com/in/prarabdhshukla
+
+SUMMARY:
+Software Engineer specializing in Full-Stack Development and AWS Cloud, building scalable applications and enterprise solutions. Currently undergoing SAP MM training at TCS since February 2026.
+
+TECHNICAL SKILLS:
+- Frontend: React, Redux, Tailwind CSS, Bootstrap, HTML5, CSS3
+- Backend: Node.js, Express.js, MongoDB, MySQL
+- Programming: JavaScript (ES6+), C++, Java
+- Enterprise: SAP MM, ERP Systems, Procurement, Inventory Management
+- Tools: Git, GitHub, Postman, JWT Auth, REST APIs, VS Code
+
+PROJECTS:
+1. Lifestyle — Clothing E-Commerce Platform
+   Tech: React, Node.js, Express, MongoDB, JWT, CSS3
+   Features: User authentication, product management with categories, order tracking, PDF invoice generation, admin dashboard with analytics
+
+2. Rakt Bank — Blood Donation Management System
+   Tech: Java, SQLyog, HTML, CSS, Bootstrap
+   Features: Donor registration, blood-type search, blood request system, admin panel, real-time availability tracking
+
+WORK EXPERIENCE:
+Company: Tata Consultancy Services (TCS)
+Role: Assistant System Engineer
+Duration: February 2026 – Present
+Location: Ahmedabad, Gujarat, India
+Responsibilities: SAP MM training (end-to-end procurement lifecycle), configuring purchase orders, goods receipts, invoice verification, inventory and material management workflows, ERP system mapping
+
+CERTIFICATIONS:
+1. MERN Stack Development — Udemy / Coursera (2025)
+2. C/C++ Programming — NPTEL / Online Platform (2024)
+3. Java Programming — Oracle / Online Platform (2024)
+4. Data Structures & Algorithms — GeeksForGeeks / LeetCode (2024)
+5. Blockchain Builder Certificate — IBM / Coursera (2025)
+6. Internship Completion Certificate — Industry Partner (2025)
+
+RESPONSE STYLE:
+- Professional, concise, recruiter-friendly
+- Use bullet points for lists
+- Maximum 150-200 words per response
+- Fact-based, no opinions or inventions`;
 
 export const suggestedQuestions = [
-  "What technologies does Prarabdh know?",
-  "Tell me about his projects",
+  "Tell me about Prarabdh",
+  "What projects has he built?",
+  "What technologies does he know?",
   "Explain his SAP MM training",
-  "What is his MERN stack experience?",
   "What certifications does he have?",
-  "How can I contact Prarabdh?",
+  "How can I contact him?",
 ];

@@ -202,24 +202,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--fg-primary);
   overflow-x: hidden;
-  cursor: none;
   line-height: 1.7;
 }
 
-body * {
-  cursor: none;
-}
-
-/* Restore cursor for form elements */
-input, textarea, select {
-  cursor: text;
-}
-
-/* On touch/coarse pointer devices — restore default cursor */
-@media (hover: none), (pointer: coarse) {
-  body, body * { cursor: auto !important; }
-  .cursor-dot, .cursor-ring { display: none; }
-}
 
 /* Keyboard focus rings for accessibility */
 :focus-visible {
@@ -247,50 +232,6 @@ input, textarea, select {
   border-radius: 2px;
 }
 
-/* =============================================
-   CUSTOM CURSOR
-   ============================================= */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #00e5ff;
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, background 0.2s ease;
-  box-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff60;
-}
-
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 2px solid rgba(0, 229, 255, 0.5);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-}
-
-.cursor-dot.hovering {
-  width: 12px;
-  height: 12px;
-  background: #9c27b0;
-  box-shadow: 0 0 15px #9c27b0, 0 0 30px #9c27b060;
-}
-
-.cursor-ring.hovering {
-  width: 52px;
-  height: 52px;
-  border-color: rgba(156, 39, 176, 0.6);
-}
 
 /* =============================================
    GLASSMORPHISM UTILITIES
@@ -473,6 +414,11 @@ h1, h2, h3, h4, h5, h6 {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes heroGradShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 @keyframes fade-up {
@@ -678,4 +624,39 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 ::selection {
   background: rgba(0, 229, 255, 0.2);
   color: #00e5ff;
+}
+
+/* =============================================
+   HERO UTILITIES
+   ============================================= */
+
+/* Slow rotating orbit rings */
+.animate-spin-slow {
+  animation: spin 20s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Blinking typing cursor */
+.typing-cursor::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 2px;
+  color: #00e5ff;
+  animation: blink 0.9s step-end infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Centre circle neon pulse */
+.animate-pulse-neon {
+  animation: pulseNeon 2.5s ease-in-out infinite;
+}
+@keyframes pulseNeon {
+  0%, 100% { opacity: 0.1; transform: scale(1);    }
+  50%      { opacity: 0.3; transform: scale(1.08); }
 }
