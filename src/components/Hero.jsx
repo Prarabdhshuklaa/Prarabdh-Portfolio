@@ -85,10 +85,10 @@ export default function Hero() {
                   letterSpacing: '-0.02em',
                 }}
               >
-                <span className="block text-[#f0f4ff] mb-1" style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(52px, 7.5vw, 69px)' }}>
+                <span className="block text-[#f0f4ff] mb-1" style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(52px, 7.5vw, 59px)' }}>
                   Hi, I'm
                 </span>
-                <span className="block text-gradient leading-tight" style={{ fontSize: 'clamp(52px, 7.5vw, 69px)' }}>
+                <span className="block text-gradient leading-tight" style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: 'clamp(52px, 7.5vw, 29px)' }}>
                   Prarabdh Shukla
                 </span>
               </h1>
