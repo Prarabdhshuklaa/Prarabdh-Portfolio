@@ -81,14 +81,14 @@ export default function Hero() {
                 className="font-black leading-none w-full"
                 style={{
                   fontFamily: 'Space Grotesk, sans-serif',
-                  fontWeight: 700,
-                  letterSpacing: '0.01em',
+                  fontWeight: 800,
+                  letterSpacing: '-0.02em',
                 }}
               >
-                <span className="block text-2xl sm:text-3xl font-semibold mb-2 font-mono" style={{ color: 'var(--fg-primary)' }}>
+                <span className="block text-[#f0f4ff] mb-1" style={{ fontSize: 'clamp(52px, 7.5vw, 69px)' }}>
                   Hi, I'm
                 </span>
-                <span className="block text-gradient leading-tight" style={{ fontSize: 'clamp(44px, 6.5vw, 68px)' }}>
+                <span className="block text-gradient leading-tight" style={{ fontSize: 'clamp(52px, 7.5vw, 69px)' }}>
                   Prarabdh Shukla
                 </span>
               </h1>
