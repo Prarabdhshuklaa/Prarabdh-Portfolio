@@ -24,6 +24,9 @@ export default function AIProjectAnalyzer({ project, onClose }) {
   return (
     <AnimatePresence>
       <motion.div ref={overlayRef} className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-analyzer-title"
         style={{ background: 'rgba(5,5,16,0.8)', backdropFilter: 'blur(10px)' }}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         onClick={e => e.target === overlayRef.current && onClose()}>
@@ -33,10 +36,10 @@ export default function AIProjectAnalyzer({ project, onClose }) {
             <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0" style={{ background: `${project.color}15`, border: `1px solid ${project.color}30` }}>{project.icon}</div>
             <div className="flex-1">
               <div className="text-xs font-mono text-[#00e5ff] mb-0.5">🤖 AI Analysis</div>
-              <h3 className="font-bold text-[#f0f4ff]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{project.title}</h3>
+              <h3 id="project-analyzer-title" className="font-bold text-[#f0f4ff]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{project.title}</h3>
               <p className="text-xs text-[#8892b0]">{project.subtitle}</p>
             </div>
-            <button onClick={onClose} className="w-8 h-8 rounded-lg flex items-center justify-center text-[#8892b0] hover:text-[#f0f4ff] hover:bg-white/5 transition-all flex-shrink-0">✕</button>
+            <button onClick={onClose} aria-label="Close dialog" className="w-8 h-8 rounded-lg flex items-center justify-center text-[#8892b0] hover:text-[#f0f4ff] hover:bg-white/5 transition-all flex-shrink-0">✕</button>
           </div>
           <div className="flex-1 overflow-y-auto p-6">
             {loading ? (

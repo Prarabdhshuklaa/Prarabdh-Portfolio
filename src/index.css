@@ -46,10 +46,10 @@
   --glass-border: rgba(0,0,0,0.1);
   --glass-border-hover: rgba(0,100,200,0.4);
   --text-primary: #0d1120;
-  --text-secondary: #4a5578;
+  --text-secondary: #2e3856;
   --text-accent: #0070c8;
   --fg-primary: #0d1120;
-  --fg-secondary: #4a5578;
+  --fg-secondary: #2e3856;
   --nav-bg: rgba(240,244,255,0.95);
   --mobile-menu-bg: rgba(240,244,255,0.99);
   --scrollbar-track: #e4eaf8;
@@ -78,8 +78,8 @@
 
 /* Text color overrides for ALL hardcoded Tailwind classes */
 [data-theme="light"] .text-\[\#f0f4ff\]  { color: #0d1120 !important; }
-[data-theme="light"] .text-\[\#8892b0\]  { color: #4a5578 !important; }
-[data-theme="light"] .text-\[\#9aa5c0\]  { color: #4a5578 !important; }
+[data-theme="light"] .text-\[\#8892b0\]  { color: #2e3856 !important; }
+[data-theme="light"] .text-\[\#9aa5c0\]  { color: #2e3856 !important; }
 [data-theme="light"] .text-\[\#ccd6f6\]  { color: #1a2244 !important; }
 [data-theme="light"] .text-\[\#00e5ff\]  { color: #0070c8 !important; }
 [data-theme="light"] .text-\[\#7b2fff\]  { color: #6020d8 !important; }
@@ -175,7 +175,7 @@
 [data-theme="light"] .mobile-menu a { color: #0d1120 !important; }
 
 /* Smooth transition when theme switches */
-*, *::before, *::after {
+body, section, footer, .glass-card, .glass-nav, .btn-primary, .btn-secondary, a, button, input, textarea, span, p, h1, h2, h3, h4, svg {
   transition-property: background-color, border-color, color, box-shadow, fill, stroke;
   transition-duration: 0.3s;
   transition-timing-function: ease;

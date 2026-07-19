@@ -23,6 +23,9 @@ function CertModal({ cert, onClose }) {
     <AnimatePresence>
       <motion.div
         className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cert-modal-title"
         style={{ background: 'rgba(5,5,16,0.9)', backdropFilter: 'blur(14px)' }}
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
         onClick={e => e.target === e.currentTarget && (viewing ? setViewing(false) : onClose())}
@@ -48,12 +51,13 @@ function CertModal({ cert, onClose }) {
                   {cert.icon}
                 </div>
                 <div className="text-left">
-                  <h3 className="font-bold text-[#f0f4ff] text-sm leading-tight" style={{ fontFamily: 'Space Grotesk,sans-serif' }}>{cert.title}</h3>
+                  <h3 id="cert-modal-title" className="font-bold text-[#f0f4ff] text-sm leading-tight" style={{ fontFamily: 'Space Grotesk,sans-serif' }}>{cert.title}</h3>
                   <p className="text-xs text-[#8892b0]">{cert.issuer} · <span style={{ color: cert.color }}>{cert.date}</span></p>
                 </div>
               </div>
               <button
                 onClick={viewing ? () => setViewing(false) : onClose}
+                aria-label="Close dialog"
                 className="w-8 h-8 rounded-full flex items-center justify-center text-[#8892b0] hover:text-white transition-colors"
                 style={{ background: 'rgba(255,255,255,0.05)' }}
               >

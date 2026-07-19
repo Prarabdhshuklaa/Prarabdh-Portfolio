@@ -6,10 +6,10 @@ import { personalInfo } from '../utils/data';
 
 // ── Floating tech badges around the orbit circle ──────────────
 const techBadges = [
-  { label: 'React', emoji: '⚛️', delay: 0, pos: { top: '5%', left: '-18%' } },
-  { label: 'Javascript', emoji: '🟨', delay: 0.4, pos: { top: '5%', right: '-18%' } },
+  { label: 'SAP ABAP', emoji: '🔷', delay: 0.4, pos: { top: '5%', left: '-18%' } },
+  { label: 'React', emoji: '⚛️', delay: 0, pos: { top: '5%', right: '-18%' } },
   { label: 'C++', emoji: '➕', delay: 0.8, pos: { bottom: '8%', left: '-18%' } },
-  { label: 'SQL', emoji: '🗄️', delay: 1.2, pos: { bottom: '8%', right: '-18%' } },
+  { label: 'Node.js', emoji: '🟢', delay: 1.2, pos: { bottom: '8%', right: '-18%' } },
 ];
 
 // ── Typing effect hook ─────────────────────────────────────────

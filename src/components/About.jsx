@@ -46,9 +46,9 @@ const timeline = [
   },
   {
     year: '2026',
-    title: 'System Engineer @ TCS',
-    subtitle: 'Enterprise ERP Expertise',
-    desc: 'Undergoing specialized SAP Materials Management training at TCS since February 2026, bridging full-stack development with enterprise ERP systems.',
+    title: 'ASE @ TCS — SAP ABAP Developer',
+    subtitle: 'Elanco Project · SAP Support',
+    desc: 'Providing SAP technical support and database upgrades for Elanco, a global pharmaceutical client, on their existing SAP S/4HANA landscape. Working on incident resolution, DB migration, and system maintenance at TCS.',
     color: '#7b2fff',
     icon: '⚡',
   },
@@ -193,9 +193,7 @@ export default function About() {
           {/* Bio */}
           <div className="flex flex-col gap-6">
             {[
-              personalInfo.bio1 || `I am a Software Engineer specializing in Full-Stack Development, AWS Cloud, and SAP MM. With experience in building scalable web applications and enterprise solutions, I focus on creating software that combines technical excellence with real business value.
-My expertise includes React, Node.js, Express.js, MongoDB, MySQL, AWS, and SAP technologies. From developing full-stack applications like Lifestyle to working with enterprise systems, I enjoy solving complex problems and delivering impactful digital solutions.
-I am committed to continuous learning, innovation, and building technology that enhances user experiences and drives business growth.`,
+              personalInfo.bio1 || `I am a Software Engineer specializing in Full-Stack Development and a SAP ABAP Certified Developer with a passion for building scalable, high-performance applications that deliver real business value. My primary focus is developing modern web applications using React, Node.js, Express.js, MongoDB, and MySQL, while also leveraging my expertise in SAP ABAP and Smartforms to create and enhance enterprise solutions. Currently, I work as a SAP ABAP Developer on the Elanco project at TCS, where I contribute to the development and maintenance of enterprise SAP applications. I enjoy solving complex technical challenges, writing clean and maintainable code, and continuously learning new technologies to build innovative software that enhances user experiences and drives business growth.`,
 
             ].map((para, i) => (
               <motion.p

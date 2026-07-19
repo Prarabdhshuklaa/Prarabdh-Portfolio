@@ -2,6 +2,20 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { experience } from '../utils/data';
 
+// ── Dynamic highlight cards per experience entry ───────────────
+const highlights = {
+  1: [
+    { icon: '🔷', label: 'SAP ABAP',    desc: 'Certified Developer'      },
+    { icon: '📄', label: 'Smartforms',  desc: 'Enterprise doc output'    },
+    { icon: '💾', label: 'SAP S/4HANA', desc: 'Support & DB upgrades'     },
+  ],
+  2: [
+    { icon: '⚛️',  label: 'Full Stack',   desc: 'React + Node.js'          },
+    { icon: '🗄️', label: 'Databases',     desc: 'MongoDB & MySQL'           },
+    { icon: '🔄', label: 'Agile / Scrum', desc: 'Sprint-based delivery'     },
+  ],
+};
+
 export default function Experience() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -47,15 +61,11 @@ export default function Experience() {
                   transition={{ duration: 0.6, delay: i * 0.2 + 0.2, ease: 'easeOut' }}
                   className="relative flex items-center md:grid md:grid-cols-2 gap-0 mb-12"
                 >
-                  {/* ── LEFT CARD (even index) ── */}
                   {isLeft ? (
                     <>
-                      {/* Card on left */}
                       <div className="md:pr-12 w-full">
-                        <ExperienceCard exp={exp} color={exp.color} />
+                        <ExperienceCard exp={exp} />
                       </div>
-
-                      {/* Center dot */}
                       <div className="hidden md:flex items-center justify-start pl-0 relative">
                         <div className="absolute -left-3 flex items-center justify-center">
                           <div className="w-6 h-6 rounded-full border-2 z-10"
@@ -65,17 +75,14 @@ export default function Experience() {
                     </>
                   ) : (
                     <>
-                      {/* Empty left + dot */}
                       <div className="hidden md:flex items-center justify-end pr-0 relative">
                         <div className="absolute -right-3 flex items-center justify-center">
                           <div className="w-6 h-6 rounded-full border-2 z-10"
                             style={{ background: '#0d0d1a', borderColor: exp.color, boxShadow: `0 0 12px ${exp.color}60` }} />
                         </div>
                       </div>
-
-                      {/* Card on right */}
                       <div className="md:pl-12 w-full">
-                        <ExperienceCard exp={exp} color={exp.color} />
+                        <ExperienceCard exp={exp} />
                       </div>
                     </>
                   )}
@@ -107,7 +114,6 @@ function ExperienceCard({ exp }) {
         <h3 className="text-base font-bold text-[#f0f4ff] leading-tight" style={{ fontFamily: 'Space Grotesk,sans-serif' }}>
           {exp.role}
         </h3>
-        {/* Company logo */}
         <div
           className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
           style={{ background: exp.logo?.startsWith('/') ? '#ffffff' : `${exp.color}15`, border: `1px solid ${exp.color}30` }}
@@ -176,6 +182,20 @@ function ExperienceCard({ exp }) {
           </span>
         ))}
       </div>
+
+      {/* Highlight mini-cards (only for entries with highlights) */}
+      {highlights[exp.id] && (
+        <div className="grid grid-cols-3 gap-2 mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          {highlights[exp.id].map(item => (
+            <div key={item.label} className="text-center p-2 rounded-xl"
+              style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="text-lg mb-1">{item.icon}</div>
+              <div className="text-[10px] font-bold text-[#f0f4ff] leading-tight">{item.label}</div>
+              <div className="text-[9px] text-[#8892b0] mt-0.5 leading-tight">{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

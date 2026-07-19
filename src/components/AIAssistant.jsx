@@ -69,7 +69,7 @@ export default function AIAssistant() {
     {
       id: 0,
       role: 'model',
-      content: "👋 Hi! I'm **Ask Prarabdh AI** — your guide to Prarabdh's professional journey.\n\nAsk me about his skills, projects, certifications, SAP MM training, or how to contact him!",
+      content: "👋 Hi! I'm **Ask Prarabdh AI** — your guide to Prarabdh's professional journey.\n\nAsk me about his skills, projects, certifications, SAP ABAP Developer work, or how to contact him!",
     },
   ]);
   const [input, setInput] = useState('');
@@ -133,7 +133,7 @@ export default function AIAssistant() {
   };
 
   const clearChat = () => {
-    setMessages([{ id: 0, role: 'model', content: "👋 Hi! I'm **Ask Prarabdh AI** — your guide to Prarabdh's professional journey.\n\nAsk me about his skills, projects, certifications, SAP MM training, or how to contact him!" }]);
+    setMessages([{ id: 0, role: 'model', content: "👋 Hi! I'm **Ask Prarabdh AI** — your guide to Prarabdh's professional journey.\n\nAsk me about his skills, projects, certifications, SAP ABAP Developer work, or how to contact him!" }]);
   };
 
   return (

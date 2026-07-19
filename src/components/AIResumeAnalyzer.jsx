@@ -31,7 +31,7 @@ export default function AIResumeAnalyzer() {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   const handleAnalyze = async (useDefault) => {
-    const text = (useDefault || !resumeText.trim()) ? 'Prarabdh Shukla - Full Stack Developer. Skills: React, Node.js, MongoDB, SAP MM. TCS SAP MM Trainee since Feb 2026. Projects: Lifestyle (MERN), Rakt Bank (Java). Certifications: MERN Stack, DSA, Blockchain.' : resumeText;
+    const text = (useDefault || !resumeText.trim()) ? 'Prarabdh Shukla - Full Stack Developer. Skills: React, Node.js, MongoDB, SAP ABAP. TCS SAP ABAP Developer since Feb 2026. Projects: Lifestyle (MERN), Rakt Bank (Java). Certifications: MERN Stack, DSA, Blockchain.' : resumeText;
     setLoading(true);
     const result = await analyzeResume(text);
     setAnalysis(result);
@@ -51,8 +51,8 @@ export default function AIResumeAnalyzer() {
         <div className="max-w-4xl mx-auto">
           {!analysis ? (
             <motion.div initial={{ opacity:0,y:30 }} animate={inView?{opacity:1,y:0}:{}} transition={{ delay:0.2 }} className="glass-card p-8">
-              <label className="block text-sm font-medium text-[#8892b0] mb-3">Paste Resume Text (or use default Prarabdh profile)</label>
-              <textarea className="form-input h-40 font-mono text-xs" placeholder="Paste resume text here..." value={resumeText} onChange={e => setResumeText(e.target.value)} />
+              <label htmlFor="resume-text-input" className="block text-sm font-medium text-[#8892b0] mb-3">Paste Resume Text (or use default Prarabdh profile)</label>
+              <textarea id="resume-text-input" className="form-input h-40 font-mono text-xs" placeholder="Paste resume text here..." value={resumeText} onChange={e => setResumeText(e.target.value)} />
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
                 <button onClick={() => handleAnalyze(false)} disabled={loading} className="btn-primary flex-1 justify-center py-3">
                   {loading ? <><div className="w-4 h-4 border-2 border-[#00e5ff]/30 border-t-[#00e5ff] rounded-full animate-spin" />Analyzing...</> : '🤖 Analyze with AI'}

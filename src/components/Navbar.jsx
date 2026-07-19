@@ -23,6 +23,15 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
   return (
     <>
       <motion.header
@@ -94,7 +103,13 @@ export default function Navbar() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
               Resume
             </a>
-            <button className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg bg-white/5 border border-white/10" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg bg-white/5 border border-white/10"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation-menu"
+            >
               <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
               <span className={`block h-0.5 w-5 bg-white transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -104,7 +119,15 @@ export default function Navbar() {
       </motion.header>
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div className="mobile-menu md:hidden z-40" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <motion.div
+            id="mobile-navigation-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
+            className="mobile-menu md:hidden z-40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
             {navLinks.map((link, i) => (
               <motion.div key={link.href} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i*0.07 }}>
                 <Link to={link.href} smooth duration={600} offset={-70} onClick={() => setMobileOpen(false)}

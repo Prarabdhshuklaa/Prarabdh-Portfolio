@@ -7,13 +7,15 @@ export default function ParticleBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
     let animFrame;
     let mouseX = width / 2;
     let mouseY = height / 2;
-    const NUM_PARTICLES = 80;
-    const CONNECTION_DIST = 150;
+    
+    const getParticleCount = (w) => (w < 768 ? 35 : 75);
+    const CONNECTION_DIST = width < 768 ? 100 : 150;
 
     class Particle {
       constructor() { this.reset(); }
@@ -42,16 +44,17 @@ export default function ParticleBackground() {
       }
     }
 
-    const particles = Array.from({ length: NUM_PARTICLES }, () => new Particle());
+    let particles = Array.from({ length: getParticleCount(width) }, () => new Particle());
 
     function drawConnections() {
+      const connDist = width < 768 ? 100 : CONNECTION_DIST;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i+1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx*dx + dy*dy);
-          if (dist < CONNECTION_DIST) {
-            const alpha = (1 - dist/CONNECTION_DIST)*0.15;
+          if (dist < connDist) {
+            const alpha = (1 - dist/connDist)*0.15;
             ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             ctx.strokeStyle = `rgba(0,229,255,${alpha})`; ctx.lineWidth = 0.5; ctx.stroke();
@@ -68,11 +71,27 @@ export default function ParticleBackground() {
     }
     animate();
 
-    const handleResize = () => { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; };
+    const handleResize = () => {
+      // Prevent resizing if window width is unchanged (e.g. mobile scroll showing/hiding URL bar)
+      if (canvas.width === window.innerWidth) return;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      
+      // Update particle count dynamically
+      const count = getParticleCount(width);
+      particles = Array.from({ length: count }, () => new Particle());
+    };
+    
     const handleMouse = (e) => { mouseX = e.clientX; mouseY = e.clientY; };
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouse);
-    return () => { cancelAnimationFrame(animFrame); window.removeEventListener('resize', handleResize); window.removeEventListener('mousemove', handleMouse); };
+    
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('mousemove', handleMouse, { passive: true });
+    
+    return () => { 
+      cancelAnimationFrame(animFrame); 
+      window.removeEventListener('resize', handleResize); 
+      window.removeEventListener('mousemove', handleMouse); 
+    };
   }, []);
 
   return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" style={{ opacity: 0.6 }} />;

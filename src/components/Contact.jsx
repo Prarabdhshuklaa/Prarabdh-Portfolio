@@ -84,9 +84,9 @@ export default function Contact() {
           <h2 className="text-4xl sm:text-5xl font-bold" style={{ fontFamily: 'Space Grotesk,sans-serif' }}>
             Get In <span className="text-gradient">Touch</span>
           </h2>
-          <p className="text-[#8892b0] mt-4 max-w-xl">
+          {/* <p className="text-[#8892b0] mt-4 max-w-xl">
             Have a project in mind or want to collaborate? Let's connect!
-          </p>
+          </p> */}
           <div className="w-12 h-0.5 mt-4" style={{ background: 'linear-gradient(90deg, #00e5ff, #7b2fff)' }} />
         </motion.div>
 
@@ -98,8 +98,7 @@ export default function Contact() {
           className="text-center mb-12 max-w-2xl mx-auto"
         >
           <p className="text-[#8892b0] leading-relaxed">
-            I'm currently open to new opportunities, collaborations, and interesting projects.
-            Whether you have a question, a project idea, or just want to say hi — my inbox is always open!
+            Have a project in mind or want to collaborate? Let's connect! Whether you're looking to build a website, develop a web application, or bring a new idea to life, I'm always excited to discuss innovative solutions and turn ideas into impactful digital experiences.
           </p>
         </motion.div>
 
